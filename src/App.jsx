@@ -1,12 +1,13 @@
 import React from "react";
 
 import "./App.css";
-import Header from "./components/Header/Header";
+
+import Routering from "./Routering";
 
 function App() {
   return (
     <>
-      <Header />
+      <Routering />
     </>
   );
 }

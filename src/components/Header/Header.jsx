@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { BiCartAlt } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
@@ -12,12 +13,12 @@ const Header = () => {
         <div className={headerClass.header__container}>
           {/* logo */}
           <div className={headerClass.logo__container}>
-            <a href="#">
+            <Link to="/">
               <img
                 src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
                 alt="amazon logo"
               />
-            </a>
+            </Link>
             {/* delivery */}
             <div className={headerClass.delivery}>
               <span>
@@ -40,7 +41,7 @@ const Header = () => {
           </div>
           {/* other section */}
           <div className={headerClass.order__container}>
-            <a href="" className={headerClass.language}>
+            <Link to="" className={headerClass.language}>
               <img
                 src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
                 alt=""
@@ -48,23 +49,23 @@ const Header = () => {
               <select>
                 <option value="">EN</option>
               </select>
-            </a>
+            </Link>
             {/* three components */}
-            <a href="">
+            <Link to="">
               <p>Sign In</p>
               <span>Account & Lists</span>
-            </a>
+            </Link>
             {/* orders */}
-            <a href="">
+            <Link to="/orders">
               <p>returns</p>
               <span>& Orders</span>
-            </a>
+            </Link>
             {/* cart */}
-            <a href="/cart" className={headerClass.cart}>
+            <Link to="/cart" className={headerClass.cart}>
               {/* icon */}
               <BiCartAlt size={35} />
               <span>0</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
