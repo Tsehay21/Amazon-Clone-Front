@@ -13,6 +13,7 @@ const CarouselEffect = () => {
         infiniteLoop={true}
         showIndicators={false}
         showThumbs={false}
+        showStatus={false}
       >
         {imgData.map((singleImgLink, index) => {
           return (

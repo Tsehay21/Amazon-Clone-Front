@@ -30,6 +30,11 @@
 .delivery p {
   font-size: 10px;
 }
+.fixed {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
 .search {
   display: flex;

@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import { BiCartAlt } from "react-icons/bi";
+
 import { SlLocationPin } from "react-icons/sl";
 import headerClass from "./header.module.css";
 import LowerHeader from "./LowerHeader";
+import { DataContext } from "../DataProvider/DataProvider";
+import { PiShoppingCartLight } from "react-icons/pi";
+import { auth } from "../../Utility/firebase";
 
 const Header = () => {
+  const [{ user, basket }, dispatch] = useContext(DataContext);
+  //  console.log(basket.length);
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
+
   return (
-    <>
+    <section className={headerClass.fixed}>
       <section>
         <div className={headerClass.header__container}>
           {/* logo */}
@@ -37,7 +46,7 @@ const Header = () => {
             </select>
             <input type="text" />
             {/* icon */}
-            <FaSearch size={"22.5"} />
+            <FaSearch size={"36"} />
           </div>
           {/* other section */}
           <div className={headerClass.order__container}>
@@ -51,9 +60,21 @@ const Header = () => {
               </select>
             </Link>
             {/* three components */}
-            <Link to="">
-              <p>Sign In</p>
-              <span>Account & Lists</span>
+            <Link to={!user && "/auth"}>
+              <div>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email?.split("@")[0]}</p>
+                    <span onClick={() => auth.signOut()}>Sign Out</span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+
+                    <span>Account & Lists</span>
+                  </>
+                )}
+              </div>
             </Link>
             {/* orders */}
             <Link to="/orders">
@@ -63,14 +84,14 @@ const Header = () => {
             {/* cart */}
             <Link to="/cart" className={headerClass.cart}>
               {/* icon */}
-              <BiCartAlt size={35} />
-              <span>0</span>
+              <PiShoppingCartLight size={35} />
+              <span>{totalItem}</span>
             </Link>
           </div>
         </div>
       </section>
       <LowerHeader />
-    </>
+    </section>
   );
 };
 
