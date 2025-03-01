@@ -5,7 +5,9 @@
   align-items: center;
   color: #fff;
   height: 70px;
+  padding: 10px;
 }
+
 .logo__container {
   display: flex;
   align-items: center;
@@ -135,6 +137,9 @@
   gap: 2px;
   align-items: center;
 }
+/* //******************** */
+
+/* //********************* */
 
 @media screen and (max-width: 576px) {
   .header__container {

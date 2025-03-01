@@ -5,7 +5,7 @@ import ProductCard from "../../components/Product/ProductCard";
 import CurrencyFormat from "../../components/CurrencyFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
 import cartStyle from "./cart.module.css";
-import { Type } from "../../Utility/action.type"
+import { Type } from "../../Utility/action.type";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 
@@ -15,17 +15,13 @@ const Cart = () => {
     return item.price * item.amount + amount;
   }, 0);
 
-
-
   const increment = (item) => {
-  dispatch({type: Type.ADD_TO_BASKET,item})
-}
-
+    dispatch({ type: Type.ADD_TO_BASKET, item });
+  };
 
   const decrement = (id) => {
-  dispatch({type: Type.REMOVE_FROM_BASKET,id})
-}
-
+    dispatch({ type: Type.REMOVE_FROM_BASKET, id });
+  };
 
   return (
     <LayOut>
@@ -38,11 +34,10 @@ const Cart = () => {
           {basket?.length === 0 ? (
             <p>Opps ! No item in your cart</p>
           ) : (
-            basket?.map((item, i) => {
+            basket?.map((item) => {
               return (
-                <section className={cartStyle.cart_product}>
+                <section key={item.id} className={cartStyle.cart_product}>
                   <ProductCard
-                    key={i}
                     product={item}
                     renderDesc={true}
                     renderAdd={false}
@@ -60,14 +55,11 @@ const Cart = () => {
                       className={cartStyle.btn}
                       onClick={() => decrement(item.id)}
                     >
-                      
                       <IoIosArrowDown size={20} />
                     </button>
                   </div>
                 </section>
               );
-              
-             
             })
           )}
         </div>
