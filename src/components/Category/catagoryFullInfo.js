@@ -7,7 +7,6 @@ export const categoryInfos = [
   {
     title: "Discover fashion trends",
     name: "women's clothing",
-    imgLink: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
     imgLink: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
   },
   {

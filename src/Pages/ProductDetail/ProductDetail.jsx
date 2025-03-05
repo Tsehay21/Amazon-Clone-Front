@@ -8,7 +8,7 @@ import Loader from "../../components/Loader/Loader";
 
 const ProductDetail = () => {
   const { productId } = useParams();
-  // console.log(productId)
+ 
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,7 +25,7 @@ const ProductDetail = () => {
         setIsLoading(false);
       });
   }, []);
-  // console.log(product);
+
   return (
     <LayOut>
       {isLoading ? <Loader /> : <ProductCard product={product} flex={true} renderDesc={true} renderAdd={true} />}

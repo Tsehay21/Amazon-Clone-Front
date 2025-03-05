@@ -43,8 +43,8 @@ export const reducer = (state, action) => {
           newBasket.splice(index, 1);
         }
       }
-
       return { ...state, basket: newBasket };
+    
     case Type.EMPTY_BASKET:
       return {
         ...state,

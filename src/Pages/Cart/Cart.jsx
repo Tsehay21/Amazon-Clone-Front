@@ -11,6 +11,7 @@ import { IoIosArrowUp } from "react-icons/io";
 
 const Cart = () => {
   const [{ basket, user }, dispatch] = useContext(DataContext);
+
   const total = basket.reduce((amount, item) => {
     return item.price * item.amount + amount;
   }, 0);

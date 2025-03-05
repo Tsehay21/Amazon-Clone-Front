@@ -10,6 +10,7 @@ import { auth } from "../../Utility/firebase";
 
 const Header = () => {
   const [{ user, basket }, dispatch] = useContext(DataContext);
+ // console.log(basket)
   const [selectedLocation, setSelectedLocation] = useState("Ethiopia");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
@@ -59,10 +60,11 @@ const Header = () => {
               <option value="Electronics">Electronics</option>
               <option value="Clothing">Clothing</option>
             </select>
-            <input type="text" placeholder="search for products" />
+            <input type="text" placeholder="search products" />
 
             <FaSearch size={"36"} />
           </div>
+
           {/* other section */}
           <div className={headerClass.order__container}>
             {/* language dropdown */}

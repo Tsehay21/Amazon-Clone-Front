@@ -13,6 +13,7 @@ const Product = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
+       
         setProducts(res.data);
         setIsLoading(false);
       })

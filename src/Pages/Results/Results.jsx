@@ -11,7 +11,7 @@ const Results = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState([]);
   const { categoryName } = useParams();
-  // console.log(useParams())
+ 
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,7 +19,7 @@ const Results = () => {
       .get(`${productUrl}/products/category/${categoryName}`)
       .then((res) => {
         setResults(res.data);
-        //console.log(res.data);
+       
         setIsLoading(false);
       })
       .catch((err) => {

@@ -14,25 +14,23 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // console.log(email, password);
+  
   const [loading, setLoading] = useState({ signIn: false, signUp: false });
 
   const [{ user }, dispatch] = useContext(DataContext);
   const navigate = useNavigate();
   const navStateData = useLocation();
   console.log(navStateData);
-  //console.log(user);
-
+  
   const authHandler = async (e) => {
     e.preventDefault();
-    //console.log(e.target.name);
-    // const actionType = e.target.name; // SignIn or SignUp
+   
     if (e.target.name == "signin") {
       //firbase auth
       setLoading({ ...loading, signIn: true });
       signInWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
-          //console.log(userInfo)
+         
           dispatch({
             type: Type.SET_USER,
             user: userInfo.user,
@@ -48,7 +46,7 @@ const Auth = () => {
       setLoading({ ...loading, signUp: true });
       createUserWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
-          //console.log(userInfo)
+          
           dispatch({
             type: Type.SET_USER,
             user: userInfo.user,

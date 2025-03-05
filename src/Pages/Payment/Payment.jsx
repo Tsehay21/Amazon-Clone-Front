@@ -14,8 +14,6 @@ import { Type } from "../../Utility/action.type";
 const Payment = () => {
   const [{ user, basket }, dispatch] = useContext(DataContext);
 
-  //console.log(user);
-
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -32,7 +30,7 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    // console.log(e);
+    
     e?.error?.message ? setCardError(e?.error?.message) : setCardError("");
   };
 
@@ -46,7 +44,7 @@ const Payment = () => {
         method: "POST",
         url: `/payment/create?total=${total * 100}`,
       });
-      //console.log(response.data);
+      
       const clientSecret = response.data?.clientSecret;
 
       //2. client side (react side confirmation)
@@ -55,7 +53,7 @@ const Payment = () => {
           card: elements.getElement(CardElement),
         },
       });
-      //console.log(paymentIntent);
+      
 
       //3. after the confirmation --> order firestore database save, clear basket
 
