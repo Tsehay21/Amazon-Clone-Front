@@ -65,7 +65,7 @@ const Auth = () => {
     <section className={classes.login}>
       {/* logo */}
       <Link to="/">
-        <img src="https://pngimg.com/uploads/amazon/amazon_PNG6.png" alt="" />
+        <img src="https://pngimg.com/uploads/amazon/amazon_PNG6.png" alt="amazon logo" />
       </Link>
       {/* form */}
       <div className={classes.login__container}>
