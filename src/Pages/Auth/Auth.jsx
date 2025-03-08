@@ -26,7 +26,7 @@ const Auth = () => {
     e.preventDefault();
    
     if (e.target.name == "signin") {
-      //firbase auth
+      //firebase auth
       setLoading({ ...loading, signIn: true });
       signInWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
