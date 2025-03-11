@@ -17,7 +17,7 @@ const stripePromise = loadStripe(
 
 const Routering = () => {
   return (
-    <Router>
+    <Router basename="/Amazon-Clone-Front">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<Auth />} />
